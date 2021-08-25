@@ -14,8 +14,12 @@ const BuySomething = () => {
   const getItemsForSale = useEffect(() => {
     fetch('https://nc-marketplace.herokuapp.com/api/items')
       .then((response) => response.json())
-      .then((body) => console.log(body));
-  });
+      .then((body) =>{
+        let array = body.items
+        setItems(array)});
+  },[searchTerm]);
+
+  console.log(items)
 
   return (
     <div>
@@ -30,11 +34,15 @@ const BuySomething = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <ol>
-        {/* {items.map((item) => { return
-          (<li>{item.item_name}</li>);
-        })} */}
-      </ol>
+      <ul>
+        {items.map((item) => { 
+          return <li key={item.item_id}>
+            <h2>{item.item_name}</h2>
+            <img src={item.img_url}/><br/>
+            {item.price}
+            </li>
+        })};
+      </ul>
     </div>
   );
 };
