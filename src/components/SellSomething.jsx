@@ -1,9 +1,8 @@
-import {useState} from 'react';
+// import { useState } from 'react';
 
 const SellSomething = () => {
-  const [itemsForSale, setItemsForSale] = useState([{},{},{}]);
-  const [addItemComponant, setAddItemComponant] = useState(false)
-
+  // const [itemsForSale, setItemsForSale] = useState([{},{},{}]);
+  // const [addItemComponant, setAddItemComponant] = useState(false)
 
   return (
     <div>

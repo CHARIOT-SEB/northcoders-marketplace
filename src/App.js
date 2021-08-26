@@ -6,8 +6,11 @@ import LandingPage from './components/LandingPage';
 import BuySomething from './components/BuySomething';
 import SellSomething from './components/SellSomething';
 import MyBasket from './components/MyBasket';
+import { useState } from 'react';
 
 function App() {
+  const [basket, setBasket] = useState([]);
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -18,13 +21,13 @@ function App() {
             <LandingPage />
           </Route>
           <Route exact path="/buy">
-            <BuySomething />
+            <BuySomething setBasket={setBasket} basket={basket} />
           </Route>
           <Route exact path="/sell">
             <SellSomething />
           </Route>
           <Route exact path="/basket">
-            <MyBasket />
+            <MyBasket setBasket={setBasket} basket={basket} />
           </Route>
         </Switch>
       </div>
